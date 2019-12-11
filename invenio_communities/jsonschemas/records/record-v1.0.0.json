@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://localhost/schemas/records/record-v1.0.0.json",
+  "additionalProperties": false,
+  "title": "My site v1.0.0",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "description": "JSONSchema for the community",
+      "type": "string"
+    },
+    "id": {
+      "description": "Invenio community identifier.",
+      "type": "string"
+    },
+    "internal_id": {
+      "description": "Invenio community internal identifier.",
+      "type": "string"
+    },
+    "title": {
+      "description": "Community title.",
+      "type": "string"
+    },
+    "curation_policy": {
+      "description": "Community curation policy.",
+      "type": "string"
+    },
+    "page": {
+      "description": "Community page.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Community type.",
+      "type": "string",
+      "enum": [
+        "institution/organization",
+        "event",
+        "topic",
+        "project"
+      ]
+    },
+    "alternate_identifiers": {
+      "description": "Community alternate identifiers.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "website": {
+      "description": "Community website.",
+      "type": "string"
+    },
+    "funding": {
+      "description": "Community funding.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "domain/discipline": {
+      "description": "Community domain/discipline.",
+      "type": "string"
+    },
+    "verified": {
+      "description": "Community verified.",
+      "type": "boolean"
+    },
+    "visibility": {
+      "description": "Community visibility.",
+      "enum": [
+        "public",
+        "private",
+        "hidden"
+      ]
+    },
+    "member_policy": {
+      "description": "Community member policy.",
+      "enum": [
+        "open",
+        "closed"
+      ]
+    },
+    "record_policy": {
+      "description": "Community record policy.",
+      "enum": [
+        "open",
+        "closed",
+        "restricted"
+      ]
+    },
+    "archived": {
+      "description": "Community archived.",
+      "type": "boolean"
+    },
+    "logo": {
+      "description": "Community logo.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "id",
+    "title"
+  ]
+}

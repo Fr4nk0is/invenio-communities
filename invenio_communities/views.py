@@ -5,11 +5,12 @@
 # My site is free software; you can redistribute it and/or modify it under
 # the terms of the MIT License; see LICENSE file for more details.
 
-
-"""Invenio digital library framework."""
+"""Blueprint definitions."""
 
 from __future__ import absolute_import, print_function
 
-from .ext import Communities
+from operator import itemgetter
+from os.path import splitext
 
-__all__ = ('Communities', )
+from flask import Blueprint
+from invenio_previewer.proxies import current_previewer

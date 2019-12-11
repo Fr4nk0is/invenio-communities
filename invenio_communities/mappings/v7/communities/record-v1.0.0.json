@@ -1,0 +1,70 @@
+{
+  "mappings": {
+    "date_detection": false,
+    "numeric_detection": false,
+    "properties": {
+      "$schema": {
+        "type": "text",
+        "index": false
+      },
+      "title": {
+        "type": "text",
+        "copy_to": "suggest_title"
+      },
+      "suggest_title": {
+        "type": "completion"
+      },
+      "id": {
+        "type": "keyword"
+      },
+      "internal_id": {
+        "type": "keyword"
+      },
+      "curation_policy": {
+        "type": "text"
+      },
+      "page": {
+        "type": "text"
+      },
+      "type": {
+        "type": "text"
+      },
+      "alternate_identifiers": {
+        "type": "keyword"
+      },
+      "website": {
+        "type": "text"
+      },
+      "funding": {
+        "type": "keyword"
+      },
+      "domain/discipline": {
+        "type": "text"
+      },
+      "verified": {
+        "type": "boolean"
+      },
+      "visibility": {
+        "type": "keyword"
+      },
+      "member_policy": {
+        "type": "keyword"
+      },
+      "record_policy": {
+        "type": "keyword"
+      },
+      "archived": {
+        "type": "boolean"
+      },
+      "logo": {
+        "type": "keyword"
+      },
+      "_created": {
+        "type": "date"
+      },
+      "_updated": {
+        "type": "date"
+      }
+    }
+  }
+}
