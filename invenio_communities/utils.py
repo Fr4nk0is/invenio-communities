@@ -207,3 +207,46 @@ def send_community_request_email(increq):
     )
 
     send_email.delay(msg.__dict__)
+
+
+from datetime import datetime
+from invenio_accounts.models import User, Role
+
+
+# def one_week_validation_old(user_id):
+#     """Checks it the users is registered for more than one week."""
+#     print("Workflow is working")
+#     current_user = User.query.get(user_id)
+#     current_date = datetime.now()
+#     registered_date = current_user.confirmed_at
+#     if current_date - registered_date >=7:
+#         is_more_than_one_week = True
+#     elif current_date - registered_date <7:
+#         is_more_than_one_week = False
+#     else:
+#         raise Exception
+#     return is_more_than_one_week
+
+def one_week_validation(
+        action=None,
+        error_message='You need to have an account older than one week. '
+                      'Please contact us if you want to speed up the process.',
+        error_code=403):
+    """Checks it the users is registered for more than one week."""
+    def wrapper_function(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            current_user = User.query.get(user_id)
+            current_date = datetime.now()
+            registered_date = current_user.confirmed_at
+            if current_date - registered_date >=7:
+                is_more_than_one_week = True
+            elif current_date - registered_date <7:
+                is_more_than_one_week = False
+            else:
+                raise Exception
+            if not is_more_than_one_week:
+                abort(error_code, error_message)
+            return func(*args, **kwargs)
+        return wrapper
+    return wrapper_function
